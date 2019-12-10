@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListaClientesServiceService} from './lista-clientes-service.service';
 import {Cliente} from '../ClienteInterface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -10,8 +11,10 @@ import {Cliente} from '../ClienteInterface';
 })
 export class ListaClientesComponent implements OnInit {
 
-  clientes = [];
-  constructor(private clientService: ListaClientesServiceService) {
+  clientes: Cliente[];
+  constructor(private clientService: ListaClientesServiceService,
+              private activatedRouter: ActivatedRoute,
+              private router: Router) {
   }
   ngOnInit() {
     this.clientService.getAllClients().subscribe(
