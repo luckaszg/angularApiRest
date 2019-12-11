@@ -13,6 +13,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ConceptosComponent } from './conceptos/conceptos.component';
 import { ConceptoComponent } from './conceptos/concepto/concepto.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ConceptoComponent } from './conceptos/concepto/concepto.component';
     ToolbarComponent,
     HomePageComponent,
     ConceptosComponent,
-    ConceptoComponent
+    ConceptoComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,

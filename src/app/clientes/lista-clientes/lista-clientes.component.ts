@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListaClientesComponent implements OnInit {
 
   clientes: Cliente[];
+  pageSize = 5;
+  pageNumber = 1;
   constructor(private clientService: ListaClientesServiceService,
               private activatedRouter: ActivatedRoute,
               private router: Router) {
@@ -23,4 +25,5 @@ export class ListaClientesComponent implements OnInit {
       }
     );
   }
+
 }

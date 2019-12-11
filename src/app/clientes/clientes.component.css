@@ -1,3 +1,25 @@
 h2 {
   color: blue;
 }
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+#left-table {
+  background: lightgray;
+  height: 95%;
+  width: 55%;
+  margin: 1em;
+  float: left;
+  border-radius: 1em;
+}
+
+#right-table {
+  background: lightgray;
+  height: 95%;
+  width: 40%;
+  margin: 1em;
+  float: right;
+  border-radius: 1em;
+}

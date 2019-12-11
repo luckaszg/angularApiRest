@@ -1,7 +1,33 @@
-<h3 (click)="onShowList()">Clientes</h3>
-  <ul>
-    <li *ngFor="let cliente of clientes">
-      <h2>{{ cliente.nombre }}</h2>
-      <h2>{{ cliente.apellido }}</h2>
-    </li>
-  </ul>
+<!--<h3>Clientes</h3>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let cliente of clientes">-->
+<!--      <ul>-->
+<!--        <li *ngFor="let data of cliente | keyvalue">-->
+<!--          {{ data.key }}:{{ data.value }}-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </li>-->
+<!--  </ul>-->
+<div>
+  <h3 class="title">Clientes</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Nro Documento</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cliente of clientes | paginate:pageSize:pageNumber">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.nroDocumento }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefono }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
