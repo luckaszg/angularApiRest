@@ -14,6 +14,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ConceptosComponent } from './conceptos/conceptos.component';
 import { ConceptoComponent } from './conceptos/concepto/concepto.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import {MatPaginatorIntl} from '@angular/material';
+import {CustomMatPaginatorIntl} from './paginator-es';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [{
+    provide: MatPaginatorIntl,
+    useClass: CustomMatPaginatorIntl
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

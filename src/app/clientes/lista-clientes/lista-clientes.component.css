@@ -5,3 +5,7 @@ h3 {
 .title {
   text-align: center;
 }
+
+.mat-paginator {
+  alignment: center;
+}
