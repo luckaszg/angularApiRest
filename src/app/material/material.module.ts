@@ -5,8 +5,12 @@ import {
   MatIconModule,
   MatMenuModule,
   MatToolbarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatNativeDateModule,
 } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const material = [
   MatSliderModule,
@@ -14,7 +18,11 @@ const material = [
   MatMenuModule,
   MatIconModule,
   MatToolbarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PaginatePipe implements PipeTransform {
 
+  public array: any[];
   transform(array: any[], pageSize: any, pageNumber: number): any[] {
     if (!array.length) { return []; }
     if (pageSize === 'all') {

@@ -14,8 +14,13 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ConceptosComponent } from './conceptos/conceptos.component';
 import { ConceptoComponent } from './conceptos/concepto/concepto.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
-import {MatPaginatorIntl} from '@angular/material';
+import {DateAdapter, MAT_DATE_LOCALE, MatPaginatorIntl} from '@angular/material';
 import {CustomMatPaginatorIntl} from './paginator-es';
+import {ListaClientesServiceService} from './clientes/lista-clientes/lista-clientes-service.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { MAT_DATE_FORMATS } from '@angular/material';
+import {MY_FORMATS} from './shared/appService';
 
 @NgModule({
   declarations: [
@@ -34,12 +39,15 @@ import {CustomMatPaginatorIntl} from './paginator-es';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
   ],
-  providers: [{
+  providers: [ListaClientesServiceService, {
     provide: MatPaginatorIntl,
     useClass: CustomMatPaginatorIntl
-  }],
+  }, { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

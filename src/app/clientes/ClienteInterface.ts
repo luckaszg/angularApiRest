@@ -5,6 +5,7 @@ export class Cliente {
   nroDocumento: string;
   email: string;
   telefono: string;
+  fechaNacimiento: string;
 }
 
 
