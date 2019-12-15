@@ -1,0 +1,27 @@
+<div>
+  <h3 class="title">Conceptos</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Cantidad Requerida</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let concepto of conceptos | paginate:pageSize:pageNumber">
+      <td>{{ concepto.descripcion }}</td>
+      <td>{{ concepto.cantidadRequerida }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="conceptos.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="handlePage($event)" showFirstLastButtons>
+  </mat-paginator>
+</div>
+<div class="extra-buttons">
+  <button type="button" class="btn btn-success refrescar" (click)="onRefrescar()">Refrescar</button>
+</div>
+
+
