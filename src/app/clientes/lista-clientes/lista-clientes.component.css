@@ -9,3 +9,15 @@ h3 {
 .mat-paginator {
   alignment: center;
 }
+
+.extra-buttons {
+  width: 100%;
+  margin: 1em;
+}
+
+.refrescar {
+  float: right;
+  margin-right: 1em;
+  font-size: 14px;
+}
+

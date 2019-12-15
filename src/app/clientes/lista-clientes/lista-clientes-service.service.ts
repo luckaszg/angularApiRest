@@ -5,6 +5,7 @@ import {Cliente} from '../ClienteInterface';
 import { FormGroup, FormControl, NgForm, Validators, FormGroupDirective } from '@angular/forms';
 import {map} from 'rxjs/operators';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class ListaClientesServiceService {
   public httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   form: FormGroup = new FormGroup({
       id: new FormControl(null),
       nombre: new FormControl('', Validators.required),
@@ -29,7 +30,11 @@ export class ListaClientesServiceService {
       this.baseUrl + '/rest/clientes/all',
       {headers: this.httpHeaders});
   }
-
+  postClient(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(
+      this.baseUrl + '/rest/clientes/add',
+      cliente);
+  }
   inicializarFormulario() {
     this.form.setValue({
       id: null,
@@ -40,5 +45,8 @@ export class ListaClientesServiceService {
       telefono: '',
       fechaNacimiento: ''
     });
+  }
+  refrescar() {
+    this.router.navigate(['/clientes'], { skipLocationChange: true });
   }
 }

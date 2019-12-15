@@ -1,1 +1,14 @@
-<p>concepto works!</p>
+<form [formGroup]="service.form" (submit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="descripcion" matInput placeholder="Descripción *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="cantidadRequerida" matInput placeholder="Cantidad Requerida *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <div class="buttonStyle">
+    <button mat-flat-button color="primary" [disableRipple]="true" [disabled]="service.form.invalid">Agregar</button>
+    <button mat-button color="warn" (click)="onClear()" [disableRipple]="true">Limpiar</button>
+  </div>
+</form>

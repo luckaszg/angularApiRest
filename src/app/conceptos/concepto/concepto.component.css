@@ -1,0 +1,15 @@
+mat-form-field {
+  width: 100%;
+}
+
+form {
+  margin-top: 7%;
+}
+
+button {
+  margin: 1em;
+}
+
+.buttonStyle {
+  text-align: center;
+}

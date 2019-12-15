@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListaClientesServiceService} from '../lista-clientes/lista-clientes-service.service';
+import {Router} from '@angular/router';
+import {Cliente} from '../ClienteInterface';
 
 @Component({
   selector: 'app-crudclientes',
@@ -8,7 +10,8 @@ import {ListaClientesServiceService} from '../lista-clientes/lista-clientes-serv
 })
 export class CRUDclientesComponent implements OnInit {
 
-  constructor(private service: ListaClientesServiceService) { }
+  constructor(private service: ListaClientesServiceService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,14 +22,30 @@ export class CRUDclientesComponent implements OnInit {
 
   onSubmit() {
     if (this.service.form.valid) {
-      this.service.form.value.fechaNacimiento = this.service.form.value.fechaNacimiento._i.year + '-' +
-                                                this.service.form.value.fechaNacimiento._i.month + '-' +
-                                                this.service.form.value.fechaNacimiento._i.date;
+      if (typeof this.service.form.value.fechaNacimiento !== 'string') {
+          this.service.form.value.fechaNacimiento = this.service.form.value.fechaNacimiento._i.year + '-' +
+          this.service.form.value.fechaNacimiento._i.month + '-' +
+          this.service.form.value.fechaNacimiento._i.date;
+      }
+      this.service.postClient(this.service.form.value).subscribe(
+        data => this.recibidoCorrectamente(data),
+        error => this.errorRecibido(error)
+      );
       console.log(this.service.form.value);
-      console.log(this.service.form.value.nombre);
-      console.log(this.service.form.value.fechaNacimiento);
-      // this.service.form.postCliente(this.service.form.value);
       this.onClear();
     }
   }
+
+  public recibidoCorrectamente(data: Cliente) {
+    console.log('Creado ' + data);
+    this.volverAlListado();
+
+  }
+  public errorRecibido(error) {
+    console.log('se produjo un error ');
+  }
+  public volverAlListado() {
+    this.router.navigate(['/clientes'], { skipLocationChange: true });
+  }
+
 }

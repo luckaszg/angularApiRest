@@ -21,6 +21,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material';
 import {MY_FORMATS} from './shared/appService';
+import { ListaConceptosComponent } from './conceptos/lista-conceptos/lista-conceptos.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MY_FORMATS} from './shared/appService';
     HomePageComponent,
     ConceptosComponent,
     ConceptoComponent,
-    PaginatePipe
+    PaginatePipe,
+    ListaConceptosComponent
   ],
   imports: [
     BrowserModule,

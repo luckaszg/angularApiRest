@@ -31,5 +31,5 @@ export class ListaClientesComponent implements OnInit {
       }
     );
   }
-
+  onRefrescar() {}
 }
