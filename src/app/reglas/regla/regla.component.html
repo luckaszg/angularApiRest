@@ -1,0 +1,18 @@
+<form [formGroup]="service.form" (submit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="montoEquivalencia" matInput placeholder="Monto Equivalencia *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="limiteInferior" matInput placeholder="Límite Inferior *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="limiteSuperior" matInput placeholder="Límite Superior *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <div class="buttonStyle">
+    <button mat-flat-button color="primary" [disableRipple]="true" [disabled]="service.form.invalid">Agregar</button>
+    <button mat-button color="warn" (click)="onClear()" [disableRipple]="true">Limpiar</button>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<div>
+  <h3 class="title">Reglas</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Monto Equivalencia</th>
+      <th>Límite Inferior</th>
+      <th>Límite Superior</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let regla of reglas | paginate:pageSize:pageNumber">
+      <td>{{ regla.montoEquivalencia }}</td>
+      <td>{{ regla.limiteInferior }}</td>
+      <td>{{ regla.limiteSuperior }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="reglas.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="handlePage($event)" showFirstLastButtons>
+  </mat-paginator>
+</div>
+<div class="extra-buttons">
+  <button type="button" class="btn btn-success refrescar" (click)="onRefrescar()">Refrescar</button>
+</div>
