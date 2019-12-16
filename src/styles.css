@@ -2,3 +2,69 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+mat-form-field {
+  width: 100%;
+}
+
+form {
+  margin-top: 7%;
+}
+
+button {
+  margin: 1em;
+}
+
+.buttonStyle {
+  text-align: center;
+}
+
+h2 {
+  color: blue;
+}
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+#left-table {
+  height: 95%;
+  width: 55%;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 3em;
+  float: left;
+  border-radius: 1em;
+}
+
+#right-table {
+  height: 95%;
+  width: 40%;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 3em;
+  float: right;
+  border-radius: 1em;
+}
+
+h3 {
+  color: black;
+}
+
+.title {
+  text-align: center;
+}
+
+.mat-paginator {
+  alignment: center;
+}
+
+.extra-buttons {
+  width: 100%;
+  margin: 1em;
+}
+
+.refrescar {
+  float: right;
+  margin-right: 1em;
+  font-size: 14px;
+}

@@ -22,6 +22,12 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material';
 import {MY_FORMATS} from './shared/appService';
 import { ListaConceptosComponent } from './conceptos/lista-conceptos/lista-conceptos.component';
+import { ReglasComponent } from './reglas/reglas.component';
+import { ReglaComponent } from './reglas/regla/regla.component';
+import { ListaReglasComponent } from './reglas/lista-reglas/lista-reglas.component';
+import { ParametrosComponent } from './parametros/parametros.component';
+import { ParametroComponent } from './parametros/parametro/parametro.component';
+import { ListaParametrosComponent } from './parametros/lista-parametros/lista-parametros.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { ListaConceptosComponent } from './conceptos/lista-conceptos/lista-conce
     ConceptosComponent,
     ConceptoComponent,
     PaginatePipe,
-    ListaConceptosComponent
+    ListaConceptosComponent,
+    ReglasComponent,
+    ReglaComponent,
+    ListaReglasComponent,
+    ParametrosComponent,
+    ParametroComponent,
+    ListaParametrosComponent
   ],
   imports: [
     BrowserModule,

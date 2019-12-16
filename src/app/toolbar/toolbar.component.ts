@@ -19,6 +19,9 @@ export class ToolbarComponent implements OnInit {
   onListarConceptos(): void {
     this.route.navigate(['/conceptos'], { skipLocationChange: true });
   }
+  onListarReglas(): void {
+    this.route.navigate(['/reglas'], { skipLocationChange: true });
+  }
   ngOnInit() {
   }
 

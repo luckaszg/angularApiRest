@@ -21,11 +21,6 @@ export class ConceptoComponent implements OnInit {
   }
   onSubmit() {
     if (this.service.form.valid) {
-      if (typeof this.service.form.value.fechaNacimiento !== 'string') {
-        this.service.form.value.fechaNacimiento = this.service.form.value.fechaNacimiento._i.year + '-' +
-          this.service.form.value.fechaNacimiento._i.month + '-' +
-          this.service.form.value.fechaNacimiento._i.date;
-      }
       this.service.postConcepto(this.service.form.value).subscribe(
         data => this.recibidoCorrectamente(data),
         error => this.errorRecibido(error)

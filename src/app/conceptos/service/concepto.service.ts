@@ -28,7 +28,7 @@ export class ConceptoService {
   }
   postConcepto(concepto: Concepto): Observable<Concepto> {
     return this.http.post<Concepto>(
-      this.baseUrl + '/rest/conceptos/add',
+      this.baseUrl + '/rest/vales/add',
       concepto);
   }
   inicializarFormulario() {
