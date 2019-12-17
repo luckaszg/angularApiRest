@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ConceptoService} from '../service/concepto.service';
 import {Router} from '@angular/router';
 import {Concepto} from './ConceptoInterface';
+import {Cliente} from '../../clientes/ClienteInterface';
+import {NotificationsService} from '../../shared/notifications.service';
 
 @Component({
   selector: 'app-concepto',
@@ -11,7 +13,8 @@ import {Concepto} from './ConceptoInterface';
 export class ConceptoComponent implements OnInit {
 
   constructor(private service: ConceptoService,
-              private router: Router) { }
+              private router: Router,
+              private notificationService: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -31,11 +34,11 @@ export class ConceptoComponent implements OnInit {
   }
   public recibidoCorrectamente(data: Concepto) {
     console.log('Creado ' + data);
-    this.volverAlListado();
-
+    this.notificationService.onSuccess('Concepto Agregado!');
   }
   public errorRecibido(error) {
     console.log('se produjo un error ');
+    this.notificationService.onError('Ocurrió un error');
   }
   public volverAlListado() {
     this.router.navigate(['/conceptos'], { skipLocationChange: true });

@@ -1,3 +1,10 @@
+<!--<div class="searchField">-->
+<!--  <mat-form-field class="search-from-field" floatLabel="never">-->
+<!--    <input matInput [(ngModel)]="searchKey" placeholder="Buscar" autocomplete="off" (keyup)="applyFilter()">-->
+<!--    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()"></button>-->
+<!--    <mat-icon>close</mat-icon>-->
+<!--  </mat-form-field>-->
+<!--</div>-->
 <div>
   <h3 class="title">Clientes</h3>
   <table class="table">
@@ -8,6 +15,7 @@
       <th>Nro Documento</th>
       <th>Email</th>
       <th>Teléfono</th>
+      <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -17,6 +25,9 @@
       <td>{{ cliente.nroDocumento }}</td>
       <td>{{ cliente.email }}</td>
       <td>{{ cliente.telefono }}</td>
+      <td>
+        <mat-icon aria-hidden="false" aria-label="Example control_point icon" class="pointsButton">control_point</mat-icon>
+      </td>
     </tr>
     </tbody>
   </table>

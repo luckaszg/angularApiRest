@@ -1,1 +1,31 @@
-<p>lista-parametros works!</p>
+<div>
+  <h3 class="title">Parámetros</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Fecha Inicio Validez</th>
+      <th>Fecha Fin Validez</th>
+      <th>Días Duración</th>
+      <th>Acciónes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let parametro of parametros | paginate:pageSize:pageNumber">
+      <td>{{ parametro.fechaInicioValidez }}</td>
+      <td>{{ parametro.fechaFinValidez }}</td>
+      <td>{{ parametro.diasDuracion }}</td>
+      <td>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="editButton">edit</mat-icon>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="parametros.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="handlePage($event)" showFirstLastButtons>
+  </mat-paginator>
+</div>
+<div class="extra-buttons">
+  <button type="button" class="btn btn-success refrescar" (click)="onRefrescar()">Refrescar</button>
+</div>

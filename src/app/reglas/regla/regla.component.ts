@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {Concepto} from '../../conceptos/concepto/ConceptoInterface';
 import {ReglasService} from '../service/reglas.service';
 import {Regla} from '../Regla';
+import {Cliente} from '../../clientes/ClienteInterface';
+import {NotificationsService} from '../../shared/notifications.service';
 
 @Component({
   selector: 'app-regla',
@@ -12,7 +14,8 @@ import {Regla} from '../Regla';
 export class ReglaComponent implements OnInit {
 
   constructor(private service: ReglasService,
-              private router: Router) { }
+              private router: Router,
+              private notificationService: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -32,11 +35,11 @@ export class ReglaComponent implements OnInit {
   }
   public recibidoCorrectamente(data: Regla) {
     console.log('Creado ' + data);
-    this.volverAlListado();
-
+    this.notificationService.onSuccess('Regla Agregada!');
   }
   public errorRecibido(error) {
     console.log('se produjo un error ');
+    this.notificationService.onError('Ocurrió un error');
   }
   public volverAlListado() {
     this.router.navigate(['/reglas'], { skipLocationChange: true });

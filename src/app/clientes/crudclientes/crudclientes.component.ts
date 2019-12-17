@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ListaClientesServiceService} from '../lista-clientes/lista-clientes-service.service';
 import {Router} from '@angular/router';
 import {Cliente} from '../ClienteInterface';
+import {NotificationsService} from '../../shared/notifications.service';
 
 @Component({
   selector: 'app-crudclientes',
@@ -11,7 +12,8 @@ import {Cliente} from '../ClienteInterface';
 export class CRUDclientesComponent implements OnInit {
 
   constructor(private service: ListaClientesServiceService,
-              private router: Router) { }
+              private router: Router,
+              private notificationService: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -38,11 +40,11 @@ export class CRUDclientesComponent implements OnInit {
 
   public recibidoCorrectamente(data: Cliente) {
     console.log('Creado ' + data);
-    this.volverAlListado();
-
+    this.notificationService.onSuccess('Cliente Agregado!');
   }
   public errorRecibido(error) {
     console.log('se produjo un error ');
+    this.notificationService.onError('Ocurrió un error');
   }
   public volverAlListado() {
     this.router.navigate(['/clientes'], { skipLocationChange: true });

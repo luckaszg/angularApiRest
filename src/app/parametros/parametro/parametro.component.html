@@ -1,1 +1,22 @@
-<p>parametro works!</p>
+<form [formGroup]="service.form" (submit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="fechaInicioValidez" matInput [matDatepicker]="picker" placeholder="Elija la fecha de Inicio">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="fechaFinValidez" matInput [matDatepicker]="picker1" placeholder="Elija la fecha de finalización">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="diasDuracion" matInput placeholder="Días Duración *">
+    <mat-error>Este campo es obligatorio</mat-error>
+  </mat-form-field>
+  <div class="buttonStyle">
+    <button mat-flat-button color="primary" [disableRipple]="true" [disabled]="service.form.invalid">Agregar</button>
+    <button mat-button color="warn" (click)="onClear()" [disableRipple]="true">Limpiar</button>
+  </div>
+</form>

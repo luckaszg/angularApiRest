@@ -17,7 +17,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import {DateAdapter, MAT_DATE_LOCALE, MatPaginatorIntl} from '@angular/material';
 import {CustomMatPaginatorIntl} from './paginator-es';
 import {ListaClientesServiceService} from './clientes/lista-clientes/lista-clientes-service.service';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material';
 import {MY_FORMATS} from './shared/appService';
@@ -28,6 +28,7 @@ import { ListaReglasComponent } from './reglas/lista-reglas/lista-reglas.compone
 import { ParametrosComponent } from './parametros/parametros.component';
 import { ParametroComponent } from './parametros/parametro/parametro.component';
 import { ListaParametrosComponent } from './parametros/lista-parametros/lista-parametros.component';
+import { EditarReglaComponent } from './reglas/editar-regla/editar-regla.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ListaParametrosComponent } from './parametros/lista-parametros/lista-pa
     ListaReglasComponent,
     ParametrosComponent,
     ParametroComponent,
-    ListaParametrosComponent
+    ListaParametrosComponent,
+    EditarReglaComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { ListaParametrosComponent } from './parametros/lista-parametros/lista-pa
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ListaClientesServiceService, {
     provide: MatPaginatorIntl,

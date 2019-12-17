@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {ListaClientesServiceService} from './lista-clientes-service.service';
 import {Cliente} from '../ClienteInterface';
 import { ActivatedRoute, Router } from '@angular/router';
-import {PageEvent} from '@angular/material';
+import {MatSort, PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -13,6 +13,7 @@ import {PageEvent} from '@angular/material';
 export class ListaClientesComponent implements OnInit {
 
   clientes: Cliente[];
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
   pageSize = 5;
   pageNumber = 1;
   pageSizeOptions = [5, 10, 15];
@@ -20,6 +21,7 @@ export class ListaClientesComponent implements OnInit {
               private activatedRouter: ActivatedRoute,
               private router: Router) {
   }
+  searchKey: string;
   handlePage(e: PageEvent) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
@@ -32,4 +34,10 @@ export class ListaClientesComponent implements OnInit {
     );
   }
   onRefrescar() {}
+  onSearchClear() {
+    this.searchKey = '';
+  }
+  // applyFilter() {
+  //   this.clientes.filter = this.searchKey.trim().toLowerCase();
+  // }
 }

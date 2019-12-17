@@ -5,6 +5,8 @@ import {AppComponent} from './app.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {ConceptosComponent} from './conceptos/conceptos.component';
 import {ReglasComponent} from './reglas/reglas.component';
+import {ParametrosComponent} from './parametros/parametros.component';
+import {EditarReglaComponent} from './reglas/editar-regla/editar-regla.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,15 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'conceptos', component: ConceptosComponent},
-  { path: 'reglas', component: ReglasComponent}
+  {
+    path: 'reglas',
+    children: [
+      { path: '', component: ReglasComponent },
+      { path: 'editar/:id', component: EditarReglaComponent}
+    ]
+  },
+
+  { path: 'parametros', component: ParametrosComponent}
   // {path: '404', component: NotFoundComponent},
   // {path: '**', redirectTo: '/404'}
 ];
