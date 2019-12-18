@@ -24,6 +24,7 @@ export class ConceptoComponent implements OnInit {
   }
   onSubmit() {
     if (this.service.form.valid) {
+      this.service.form.value.cantidadRequerida = +this.service.form.value.cantidadRequerida;
       this.service.postConcepto(this.service.form.value).subscribe(
         data => this.recibidoCorrectamente(data),
         error => this.errorRecibido(error)

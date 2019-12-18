@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Concepto} from '../concepto/ConceptoInterface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Concepto} from '../concepto/ConceptoInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ConceptoService {
   constructor(private http: HttpClient,
               private router: Router) { }
   form: FormGroup = new FormGroup({
-      id: new FormControl(null),
+      // id: new FormControl(null),
       descripcion: new FormControl('', Validators.required),
       cantidadRequerida: new FormControl('', Validators.required),
     }
@@ -33,7 +33,7 @@ export class ConceptoService {
   }
   inicializarFormulario() {
     this.form.setValue({
-      id: null,
+      // id: null,
       descripcion: '',
       cantidadRequerida: '',
     });

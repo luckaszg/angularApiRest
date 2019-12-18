@@ -7,6 +7,7 @@ import {ConceptosComponent} from './conceptos/conceptos.component';
 import {ReglasComponent} from './reglas/reglas.component';
 import {ParametrosComponent} from './parametros/parametros.component';
 import {EditarReglaComponent} from './reglas/editar-regla/editar-regla.component';
+import {EditarParametroComponent} from "./parametros/editar-parametro/editar-parametro.component";
 
 
 const routes: Routes = [
@@ -21,8 +22,13 @@ const routes: Routes = [
       { path: 'editar/:id', component: EditarReglaComponent}
     ]
   },
-
-  { path: 'parametros', component: ParametrosComponent}
+  {
+    path: 'parametros',
+    children: [
+      { path: '', component: ParametrosComponent },
+      { path: 'editar/:id', component: EditarParametroComponent }
+    ]
+  }
   // {path: '404', component: NotFoundComponent},
   // {path: '**', redirectTo: '/404'}
 ];

@@ -15,7 +15,9 @@
       <td>{{ parametro.fechaFinValidez }}</td>
       <td>{{ parametro.diasDuracion }}</td>
       <td>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="editButton">edit</mat-icon>
+        <button mat-icon-button [routerLink]="['editar/'+parametro.id]">
+          <mat-icon  class="editButton">edit</mat-icon>
+        </button>
       </td>
     </tr>
     </tbody>

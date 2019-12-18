@@ -29,6 +29,7 @@ import { ParametrosComponent } from './parametros/parametros.component';
 import { ParametroComponent } from './parametros/parametro/parametro.component';
 import { ListaParametrosComponent } from './parametros/lista-parametros/lista-parametros.component';
 import { EditarReglaComponent } from './reglas/editar-regla/editar-regla.component';
+import { EditarParametroComponent } from './parametros/editar-parametro/editar-parametro.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { EditarReglaComponent } from './reglas/editar-regla/editar-regla.compone
     ParametrosComponent,
     ParametroComponent,
     ListaParametrosComponent,
-    EditarReglaComponent
+    EditarReglaComponent,
+    EditarParametroComponent
   ],
   imports: [
     BrowserModule,

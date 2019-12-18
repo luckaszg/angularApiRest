@@ -1,34 +1,42 @@
-<div>
-  <h4 class="alert">Editar Regla</h4>
-</div>
-<div class="aligner"  *ngIf="form">
-  <form [formGroup] = 'form' (ngSubmit)="onSubmit()">
-    <div class="example-container">
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label>Limite Inferior</mat-label>
-          <input formControlName = "limiteInferior" matInput placeholder="Limite Inferior" type="number" required id="limite_inferior">
-          <mat-icon matSuffix class="icono">person</mat-icon>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label>Limite Superior</mat-label>
-          <input formControlName = "limiteSuperior" matInput placeholder="Limite Superior" type="number" required id="limite_superior">
-          <mat-icon matSuffix class="icono">person</mat-icon>
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label>Monto Equivalente</mat-label>
-          <input formControlName = "montoEquivalencia" matInput placeholder="Monto Equivalencia" type="number">
-          <mat-icon matSuffix class="icono">picture_in_picture</mat-icon>
-        </mat-form-field>
-      </p>
+<div id="container">
+  <div id="left-table">
+    <div>
+      <h4 class="alert">Editar Regla</h4>
     </div>
-    <div class="example-button-row">
-      <button mat-raised-button color="accent" (click)="onclickBack()" >Cancelar</button>
-      <button mat-flat-button color="primary" (click)="onSubmit()">Guardar</button>
+    <div class="aligner"  *ngIf="form">
+      <form [formGroup] = 'form' (ngSubmit)="onSubmit()">
+        <div class="example-container">
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Limite Inferior</mat-label>
+              <input formControlName = "limiteInferior" matInput placeholder="Limite Inferior" type="number" required id="limite_inferior">
+              <mat-icon matSuffix class="icono">person</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Limite Superior</mat-label>
+              <input formControlName = "limiteSuperior" matInput placeholder="Limite Superior" type="number" required id="limite_superior">
+              <mat-icon matSuffix class="icono">person</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Monto Equivalente</mat-label>
+              <input formControlName = "montoEquivalencia" matInput placeholder="Monto Equivalencia" type="number">
+              <mat-icon matSuffix class="icono">picture_in_picture</mat-icon>
+            </mat-form-field>
+          </p>
+        </div>
+        <div class="example-button-row">
+          <button mat-raised-button color="accent" (click)="onclickBack()" >Cancelar</button>
+          <button mat-flat-button color="primary" (click)="onSubmit()">Guardar</button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
+  <div id="right-table">
+    <app-regla></app-regla>
+  </div>
 </div>
+
